@@ -1,0 +1,49 @@
+<header>
+    <h2>E - Stock Market</h2>
+</header>
+
+<div class="container">
+    <form>
+        <div class="row form-item-row mr-0 ml-0">
+            <div class="row form-item-row mr-0 ml-0">
+                <div class="text-align">
+                    List Of All Companies
+                </div>
+            </div>            
+            <div class="row form-item-row mr-0 ml-0 gridline-top gridline-bottom">
+                <div class="col-4 text-align">
+                    Company Code
+                </div>
+                <div class="col-4 text-align">
+                    Company Name
+                </div>
+                <div class="col-4 text-align">
+                    Created Date
+                </div>
+            </div>
+            <div *ngFor="let details of allCompaniesDetails; index as i;" class="pl-0 pr-0">
+                <div class="row form-item-row  mr-0 ml-0 gridline-bottom">
+                    <div class="col-4 text-align">
+                       <a href="javascript:void(0)" (click)="navigateToViewCompanyDetails(details.companyCode)">{{details.companyCode}}</a>
+                    </div>
+                    <div class="col-4 text-align">
+                        {{details.companyName}}
+                    </div>
+                    <div class="col-4 text-align">
+                        {{details.createdDate}}
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="allCompaniesDetails.length==0" class="pr-0 pl-0" >
+                <div class="row form-item-row mr-0 ml-0 gridline-bottom text-align">
+                    There are no company registered.
+                </div>
+            </div>
+        </div>    
+    </form>
+
+</div>
+
+<footer>
+    <p>E - Stock Market @Copyright by Piyush Khadse</p>
+</footer>

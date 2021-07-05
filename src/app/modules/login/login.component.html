@@ -1,0 +1,36 @@
+<header>
+    <h2>E - Stock Market</h2>
+</header>
+<div *ngIf="isSignupSuccessful" class="alert alert-success" role="alert">
+    User sign up is successful. Please login to check.
+</div>
+<div *ngIf="isLoginFailed" class="alert alert-danger" role="alert">
+    User login failed!
+</div>
+<div class="container-fluid pad-top-bottom">
+  <form [formGroup]="loginForm">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h2 style="text-align:center">Login to Stock Market</h2>
+            <div class="row">
+                <input type="text" class="form-control" name="username" placeholder="Username" formControlName="username" required>
+                <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Login" [disabled]="!loginForm.valid" (click)="login()">
+            </div>
+            <div class="row">
+                <div class="col-6 pl-0">
+                    <button class="btn btn-block signup-forget-btn" (click)="signup()">Sign up</button>
+                </div>
+                <div class="col-6 pl-0 pr-0">
+                    <button class="btn btn-block signup-forget-btn">Forgot password?</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+</div>
+
+<footer>
+    <p>E - Stock Market @Copyright by Piyush Khadse</p>
+</footer>

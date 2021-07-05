@@ -1,0 +1,36 @@
+<header>
+    <h2>E - Stock Market</h2>
+</header>
+
+<div class="container-fluid pad-top-bottom">
+    <form [formGroup]="registerCompanyForm">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h2 style="text-align:center">Register Company</h2>
+                <div class="row">
+                    <input type="text" class="form-control" name="companyName" placeholder="Company Name"
+                        formControlName="companyName" required>
+                    <input type="text" class="form-control" name="companyCode" placeholder="Company Code"
+                        formControlName="companyCode" required>
+                    <input type="text" class="form-control" name="companyCEO" placeholder="Company CEO"
+                        formControlName="companyCEO" required>
+                    <input type="text" class="form-control" formControlName="companyTurnover" name="companyTurnover"
+                        placeholder="Company Turnover" required>
+                    <input type="text" class="form-control" formControlName="companyWebsite" name="companyWebsite"
+                        placeholder="Company Website" required>
+                    <select formControlName="stockExchange" class="form-control" required>
+                        <option value= "" default>Select Stock Exchange</option>
+                        <option value= "BSE">BSE</option>
+                        <option value= "NSE">NSE</option>
+                    </select>
+                    <input type="submit" value="Register" [disabled]="!registerCompanyForm.valid" (click)="registerCompany()">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer>
+    <p>E - Stock Market @Copyright by Piyush Khadse</p>
+</footer>

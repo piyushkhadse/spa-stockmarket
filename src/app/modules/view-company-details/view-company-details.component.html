@@ -1,0 +1,45 @@
+<header>
+    <h2>E - Stock Market</h2>
+</header>
+<div class="container">
+    <form>
+        <div class="row form-item-row mr-0 ml-0 gridline-bottom">
+            <div class="text-align text-bold">
+                Company Details
+            </div>
+        </div>
+
+        <div class="row form-item-row mr-0 ml-0">
+            <div class="col-4">Company Code</div>
+            <div class="col-8">{{companyDetails.companyCode}}</div>
+        </div>
+        <div class="row form-item-row mr-0 ml-0">
+            <div class="col-4">Company Name</div>
+            <div class="col-8">{{companyDetails.companyName}}</div>
+        </div>
+        <div class="row form-item-row mr-0 ml-0">
+            <div class="col-4">Company CEO</div>
+            <div class="col-8">{{companyDetails.companyCEO}}</div>
+        </div>
+        <div class="row form-item-row mr-0 ml-0">
+            <div class="col-4">Company Turnover</div>
+            <div class="col-8">{{companyDetails.companyTurnover}}</div>
+        </div>
+        <div class="row form-item-row mr-0 ml-0">
+            <div class="col-4">Company Website</div>
+            <div class="col-8">{{companyDetails.companyWebsite}}</div>
+        </div>
+        <div class="row form-item-row mr-0 ml-0">
+            <div class="col-4">Stock Price</div>
+            <div class="col-8">{{stockDetails ? (stockDetails.stockPrice ? stockDetails.stockPrice : '-') : '-'}}</div>
+        </div>
+        <div class="row form-item-row mr-0 ml-0">
+            <div class="col-4">Stock Exchange</div>
+            <div class="col-8">{{companyDetails.stockExchange}}</div>
+        </div>
+    </form>
+</div>
+
+<footer>
+    <p>E - Stock Market @Copyright by Piyush Khadse</p>
+</footer>

@@ -1,0 +1,102 @@
+<header>
+    <h2>E - Stock Market</h2>
+</header>
+<div class="container">
+    <form [formGroup]="homeFormGroup">
+        <div class="row pl-5 ml-0 mr-0">
+            <div class="col-3">
+                <button class="btn btn-block signup-forget-btn" (click)="registerCompany()">Register Company</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-block signup-forget-btn" (click)="viewAllCompanies()">View All Companies</button>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" name="companyCode" formControlName="companyCode" placeholder="Enter a Company Code" required>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-block signup-forget-btn" (click)="serach()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pad-top-bottom-20 text-align" *ngIf="!isSearched">
+            Please enter company code to get company details
+        </div>
+        <div *ngIf="isSearched" class="pad-top-bottom-2">
+            <div class="row pl-5 form-item-row ml-0 mr-0 gridline-top gridline-bottom">
+                <div class="col-2 text-bold">Comapny Code:</div>
+                <div class="col-2">{{companyDeails.companyCode}}</div>
+                <div class="col-1"></div>
+                <div class="col-2 text-bold">Comapny Name:</div>
+                <div class="col-3">{{companyDeails.companyName}}</div>
+            </div>
+
+            <div class="row pl-5 form-item-row ml-0 mr-0 gridline-bottom">
+                <div class="col-3 text-bold pr-0">Date Range Period Search Filter</div>
+                <div class="col-1 pl-0 pr-0 text-align-end">From Date:</div>
+                <div class="col-2 pl-3 pr-0">
+                    <input type="date" formControlName="startDate" class= "form-control" name="from_date"/>
+                </div>
+                <div class="col-1 pr-0 text-align-end">To Date:</div>
+                <div class="col-2 pl-3 pr-0">
+                    <input type="date" formControlName="endDate" class= "form-control" name="to_date"/>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-2">
+                        </div>
+                        <div class="col-8">
+                        <button class="btn btn-block signup-forget-btn" (click)="stockPeriodSearch()">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-item-row ml-0 mr-0 text-align">
+                <div class="col-12 text-align text-bold">
+                    Stock Price History
+                </div>
+            </div>
+            <div class="row pl-5 form-item-row ml-0 mr-0 gridline-top gridline-bottom">
+                <div class="col-4">Stock Price</div>
+                <div class="col-4">Date</div>
+                <div class="col-4">Time</div>
+            </div>
+            <div *ngFor="let details of stockDetails; index as i;">
+                <div class="row pl-5 form-item-row ml-0 mr-0 gridline-bottom">
+                    <div class="col-4">{{details.stockPrice}}</div>
+                    <div class="col-4">{{getDate(details.createdDate)}}</div>
+                    <div class="col-4">{{getTime(details.createdDate)}}</div>
+                </div>
+            </div>
+            <div *ngIf="stockDetails.length==0">
+                <div class="row pl-5 form-item-row ml-0 mr-0 gridline-bottom">
+                    <div class="col-4">NA</div>
+                    <div class="col-4">NA</div>
+                    <div class="col-4">NA</div>
+                </div>
+            </div>
+            
+            <div class="row form-item-row ml-0 mr-0 text-align">
+                <div class="col-12 text-align text-bold">
+                    Stock Price Statistics
+                </div>
+            </div>
+            <div class="row pl-5 form-item-row ml-0 mr-0 gridline-top gridline-bottom">
+                <div class="col-4">MIN</div>
+                <div class="col-4">MAX</div>
+                <div class="col-4">AVG</div>
+            </div>
+            <div class="row pl-5 form-item-row ml-0 mr-0 gridline-bottom">
+                <div class="col-4">{{getMinValue()}}</div>
+                <div class="col-4">{{getMaxValue()}}</div>
+                <div class="col-4">{{getAvgValue()}}</div>
+            </div>
+        </div>
+    </form>
+</div>
+<footer>
+    <p>E - Stock Market @Copyright by Piyush Khadse</p>
+</footer>
