@@ -100,3 +100,12 @@ input[type=submit]:hover {
   background-color: #666;
   border-radius: 0px 0px 4px 4px;
 }
+
+input:disabled {
+  background-color: #666 !important;
+  color: white;
+}
+
+input:disabled:hover {
+  cursor: default;
+}
